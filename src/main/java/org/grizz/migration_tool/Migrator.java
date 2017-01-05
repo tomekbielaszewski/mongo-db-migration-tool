@@ -23,7 +23,8 @@ public class Migrator implements Converter<DBObject, DBObject> {
     @Override
     public DBObject convert(DBObject dbObject) {
 
-        //Your conversion code here
+        Object value = dbObject.get("value");
+        dbObject.put("value", new BasicDBObject("count", value));
 
         return dbObject;
     }
